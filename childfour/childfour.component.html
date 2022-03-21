@@ -1,0 +1,30 @@
+<div>
+    <input type="text" [(ngModel)]="Address" placeholder="search">
+</div>
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Company</th>
+            <th>Location</th>
+        </tr>
+        <tr *ngFor="let data of employeDetails | filterpipe: Address">
+            <td>{{data.name}}</td>
+            <td>{{data.salary}}</td>
+            <td>{{data.company}}</td>
+            <td>{{data.location}}</td>
+        </tr>
+    </table>
+</div>
+
+<!--  task api data send to service and receive data service to childfour components
+<p>childfour works!</p>
+<div>
+    <h1>hello</h1>
+</div>
+<button (click)="getAPI()">get api</button>
+<div>
+    <h1 *ngFor="let data of recAPI;let i=index">{{data.name}}</h1>
+     <p>{{recAPI | json}}</p> 
+</div>  -->

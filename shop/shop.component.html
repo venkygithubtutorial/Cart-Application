@@ -1,0 +1,54 @@
+<div class="container-fluid d-flex justify-content-between  p-2 fixed-top" style="background-color: green;">
+    <h1>Flipkart</h1>
+    <button class="btn btn-warning" (click)="showCart()">Cart {{cartCount}}</button>
+</div>
+
+<div class="row" style="margin-top: 100px;">
+    <div class="col-3">
+        <!-- showing categories by using drop down -->
+        <h1 style="background-color: rgb(0, 102, 128);">Catagory</h1>
+        <select class="form-select" (change)="filterProducts($event)">
+            <option *ngFor="let list of categoryName" label={{list}}>{{list}}</option>
+        </select>
+
+        <!-- displaying items when u r adding to cart inside category list -->
+        <div *ngIf="cartBox" class="fixed-top w-25" style="margin-top: 200px;">
+            <h3 class="text-center mt-2">Cart items</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Preview</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of TotalProduct;let i = index">
+                        <td>
+                            <img [src]="item.image" alt="product" style="width: 50px;height: 50px;">
+                        </td>
+                        <td>{{item.price}}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleproduct(i)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-9 float-end">
+        <h1 style="background-color: rgba(178, 193, 226, 0.198);">Products</h1>
+        <div class="card" *ngFor="let product of allProducts;let i = index">
+            <div class="card-image-top">
+                <img [src]="product.image" alt="product image" style="width: 200px;height: 200px;">
+            </div>
+            <div class="card-body">
+                <p>{{product.description}}</p>
+                <p>{{product.price}}</p>
+            </div>
+            <div class="footer">
+                <button (click)="addToCart(i)" class="btn btn-outline-primary">Add to cart</button>
+            </div>
+        </div>
+    </div>
+
+</div>

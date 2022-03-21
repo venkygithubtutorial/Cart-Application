@@ -1,0 +1,22 @@
+
+<!-- after clicking details button to display single product-->
+<br><br><br>
+<h2>Hello</h2>
+<h2>home 2 component</h2>
+<div >
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{finalDetails.id}}</mat-card-title>
+          <mat-card-subtitle>{{finalDetails.price}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="finalDetails.image" style="width: 300px;height: 300px;">
+        <mat-card-content>
+          <p>
+            {{finalDetails.description}}
+          </p>
+        </mat-card-content>
+
+      </mat-card>
+</div>
+

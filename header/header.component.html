@@ -1,0 +1,47 @@
+
+ <mat-toolbar class="header fixed-top">
+  <div class="container-fluid  d-flex justify-content-between ">
+    <div>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon  routerLink="home" >menu</mat-icon>
+        <span>My Store</span>
+      </button>
+    </div>
+    <div>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon >favorite</mat-icon>
+      </button>
+     
+        <!-- <button  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button> -->
+          <button *ngIf="cngButton1" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+          </button>
+        
+
+      <button *ngIf="cngButton1" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>account_balance</mat-icon>
+      </button>
+     
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+        <mat-icon matBadge="{{finalCartCount}}" matBadgeColor="warn" routerLink="home3">add_shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+
+
+<router-outlet></router-outlet> 
+
+<!-- <div>
+  <div class="container-fluid btn-primary d-flex justify-content-between  p-3">
+      <h1>Routing</h1>
+      <div>
+        <button routerLink="login" (click)="finalCli()">Login</button>
+        <button routerLink="lazy">lazyy</button>
+      <h1>{{btn.email}}--{{btn.password}}</h1>
+      </div>
+    </div>
+</div> -->

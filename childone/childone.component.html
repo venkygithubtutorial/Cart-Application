@@ -1,0 +1,82 @@
+<!--template driven form -->
+<div class="container" style="margin-top: 80px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>template driven form</h1>
+            <form name="form" #f="ngForm" (ngSubmit)="clickVal(f)">
+                <div>
+                    Email:
+                    <input class="form-control" type="email" name="Email" #Email="ngModel" [(ngModel)]="loginForm1.Email"
+                     required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                     <div *ngIf="sub && f.form.controls['Email']['errors']">
+                         <!-- <p *ngIf="f.form.controls['Email'] && f.form.controls['Email']['errors']">
+                         aaaa{{f.form.controls['Email'].errors['required']}}
+                         eeeee{{f.form.controls['Email'].errors['email']}} -->
+                             
+                            <span style="color:red;" *ngIf=" f.form.controls['Email'].errors['required']"> Field is mandatory</span>
+                             <span style="color:red;" *ngIf="f.form.controls['Email'].errors['pattern']">Write the correct email</span>
+                        <!-- </p>                        -->
+                     </div>
+                </div>
+                <div>
+                    password:       
+                    <input class="form-control" type="text" id="password" name="password" [(ngModel)]="loginForm1.password"
+                        #password="ngModel" required pattern="^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$" >
+                        <div *ngIf="sub && f.form.controls['password']['errors']">
+                               <span style="color:red;" *ngIf=" f.form.controls['password'].errors['required']">Password Field is mandatory</span>
+                                <span style="color:red;" *ngIf="f.form.controls['password'].errors['pattern']">At least one digit,special character,lowercase,uppercase</span>
+                        </div>
+                    <!-- <p style="color:red;" *ngIf=" sub && f.form.controls['password'].status === 'INVALID'">not valid password</p> -->
+                </div>
+                <div>
+                    Mobile:
+                    <input class="form-control" type="text" id="mobile" name="mobile" [(ngModel)]="loginForm1.mobile"
+                        #password="ngModel" required minlength="10" pattern="((\+91)|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}">
+                        <div *ngIf="sub && f.form.controls['mobile']['errors']">
+                            <span style="color:red;" *ngIf=" f.form.controls['mobile'].errors['required']">Mobile Field is mandatory</span>
+                             <span style="color:red;" *ngIf="f.form.controls['mobile'].errors['pattern']">starts+91 enter only digits</span>
+                     </div>
+                        <!-- <p style="color:red;" *ngIf=" sub && f.form.controls['mobile'].status === 'INVALID'">not valid mobile</p> -->
+                </div>
+                <div>
+                    <label for="dob">DOB:</label>
+                    <input class="form-control" type="date" id="date" name="date" [(ngModel)]="loginForm1.date"
+                        #password="ngModel" required password>
+                    <p style="color:red;" *ngIf=" sub && f.form.controls['date'].status === 'INVALID'">not valid date</p>
+                </div>
+                <button type="submit"  class="btn btn-outline-warning">login</button>
+                <button type="reset"  class="btn btn-outline-primary">reset</button>
+
+            </form>
+            <button   class="btn btn-outline-primary" routerLink="/logout">Submit</button>
+         </div>
+    </div>
+</div>
+
+
+<!--input and output decorators -->
+<!-- <div  class=" d-flex justify-content-between">
+<div *ngFor="let item of products ">
+    <h1>name:{{item.name}} </h1>
+    <h1>manu:{{item.manu}}</h1>
+    <h1>rate:{{item.rate}}</h1>
+    <button class="btn btn-danger p-1" (click)="send(item)">click</button>
+</div>
+</div> -->
+
+<!-- <div>
+    <h1>child component</h1>
+    <h2>{{data}}</h2>
+    <app-childtwo [hi]="data"></app-childtwo <button (click)="send()">send data</button> 
+    <input type="text" (keyup)="send()" [(ngModel)]= "res" > 
+<div> -->
+<!-- <div>
+ <app-childtwo [hi]="name"></app-childtwo>
+ <input type="text" [(ngModel)]="name">
+</div> -->
+
+<!-- <div>
+    <h2>child one component</h2>
+    <input type="text" id="item-input" #newItem>
+    <button (click)="cliChild()">ADD CART</button>
+</div> -->

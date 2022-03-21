@@ -1,0 +1,22 @@
+<p>home1 works!</p>
+<!--after api call display all products-->
+<div class="d-flex flex-wrap" style="margin-top: 80px;">
+    <div *ngFor="let product of products;let ind=index"  class="d-flex mx-3 my-3">
+        <mat-card class="example-card" style="width: 450px;height: 490px;border-color: rgb(211, 12, 12);box-shadow: rgb(45, 196, 103);">
+            <mat-card-title-group>
+              <mat-card-title>{{product.category | uppercase}}</mat-card-title>
+              <mat-card-subtitle>{{product.price}}</mat-card-subtitle>
+              {{product.id}}
+              <img mat-card-xl-image [src]="product.image" style="width: 160px;height: 130px;">
+            </mat-card-title-group>
+            <mat-card-content>
+              {{product.description }}
+            </mat-card-content>
+           <div class="d-flex justify-content-between">
+            <button mat-raised-button color="accent" (click)="addToCart(product,ind)">Add To Cart</button>
+            <button mat-raised-button color="accent" routerLink='home2' (click)="detailsPart(product.id)">Details</button>
+           </div>
+          </mat-card>
+         
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div>
+   <h2>Login2 Page</h2>
+   <button (click)="homePage()">Logout</button>
+   <!-- <button (click)="sendCli()">send</button> -->
+   <button routerLink="/wellcome">Exit</button>
+</div>
+<div>
+    <h1>You Logged Successfully</h1>
+    <h1>Thank You For Visiting</h1>
+   <div *ngFor="let i of finalData">
+       <h2>Email:{{i.email}}</h2>
+       <h2>Password:{{i.password}}</h2>
+
+   </div>
+</div>

@@ -1,0 +1,40 @@
+<!-- post method
+<form name="form" #f="ngForm" (submit)="helloFun(f)">
+   <input type="text" name="firstName" [(ngModel)]="firstName">
+   <input type="text" name="lastName" [(ngModel)]="lastName">
+   <button type="submit">submit</button>
+</form> -->
+
+<!--get method
+     <div *ngFor="let data of  users">
+    <h1>{{data.name}}</h1>
+</div> -->
+<!-- <div>
+    <h1>HTTP Transfer</h1>
+    <button (click)="clickD()">get data</button>
+    <button (click)="createData()">create data</button>
+    <table class="table table-bordered table-striped" *ngIf='finalData'>
+        <thead>
+            <tr>
+            
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>GENDER</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let data of  finalData">
+                
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.gender}}</td>
+              </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<p *ngFor="let addr of hi.address">{{addr.street}}</p> -->

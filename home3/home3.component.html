@@ -1,0 +1,24 @@
+<div>
+  <p  style="margin-top: 80px;">home3 works!</p>
+<div *ngFor="let home3 of home3Data;let i =index" class="mx-3" >
+    <mat-card class="example-card ">
+        <mat-card-title-group>
+          <div>
+            <button (click)="decProduct(home3.id,i)">-</button>  <button>{{home3.count}}</button>  <button (click)="incProduct(home3.id)">+</button>
+          </div>
+          <div>
+            <button mat-raised-button color="accent" (click)="delItem(i)"><mat-icon>delete</mat-icon></button>
+          </div>
+          <mat-card-title>{{home3.category | uppercase}}</mat-card-title>
+          <mat-card-title>{{home3.price}}</mat-card-title>
+          <img mat-card-sm-image [src]="home3.image" style="height: 100px;width: 100px;">
+        </mat-card-title-group>
+        <mat-card-content>
+            {{home3.description}}
+        </mat-card-content>
+      </mat-card>
+</div>
+<div class="text-center">
+  <button mat-raised-button color="accent" routerLink="/home4">Go To Payment Details</button>
+</div>
+</div>

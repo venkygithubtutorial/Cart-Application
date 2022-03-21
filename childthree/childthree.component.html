@@ -1,0 +1,17 @@
+<!-- <div>
+    <h1>child3</h1>
+    <input type="text"[(ngModel)]="hello">
+</div> -->
+<div>
+    <h2>child three component</h2>
+    <button (click)="getData()">get data</button>
+    
+    <ul>
+        <li *ngFor="let data of requireData ;let ind = index">
+            <h3>{{data}}</h3> 
+            <button type="button" (click)="deleteEle(data)">Delete</button>
+             <button type="button" (click)="editEle(ind)">Edit</button>
+        </li>
+        
+    </ul>
+</div>

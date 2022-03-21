@@ -1,0 +1,109 @@
+<div class="container-fluid d-flex justify-content-between p-2 fixed-top " style="background-color: rgba(139, 236, 212, 0.924); margin:0px;">
+    <h1>Store <i class="fas fa-store ms-1"></i></h1>
+   
+    <section>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+              <mat-icon>home</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      
+    <button  mat-button color="accent" class="btn btn-outline-warning "><i class="fas fa-cart-arrow-down me-1"></i>Cart   {{cartButton}}</button>
+</div>
+<div class="row">
+    <!-- LEFY SIDE PART 1-->
+    <div class="col-4" style="margin-top: 100px;">
+        
+        <h2 style="background-color: rgba(178, 193, 226, 0.198);" class="text-center">Category</h2>
+        <div>
+            <select  name="" id="" (click)="filterProducts($event)" class="form-select">
+                <option value={{list}} *ngFor="let list of category">{{list}}</option>
+            </select>
+        </div>
+        <!-- LEFY SIDE PART 2-->
+        <div>
+            <h2 style="background-color: rgba(178, 193, 226, 0.198); margin-top: 20px;"  class="text-center">cart items</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>image</th>
+                        <th>price</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let final of getTotalProduct;let i=index" class="table-info">
+                        <td>
+                            <img [src]="final.image"  style="width:60px;height:60px">
+                        </td>
+                        <td>{{final.price}}</td>
+                        <td>
+                            <button (click)="delProduct(i)" class="btn btn-outline-danger ">Delete</button>
+                        </td>
+                        <td>
+                            <button (click)="decrement(final.id)">-</button><button>{{final.count}}</button><button (click)="increment(final.id)">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+         <!-- CALL API DATA -->
+        <div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>USER NAME</th>
+                            <th>EMAIL</th>
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of getData">
+                            <td>{{data.id}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.username}}</td>
+                            <td>{{data.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- RIGHT SIDE PART 1-->
+    <div class="col-8 cardParent" style="margin-top: 100px;">
+        <!-- <h1 *ngIf='loader == true'>Loader</h1> -->
+        <h2 style="background-color: rgba(178, 193, 226, 0.198);"  class="text-center">Products</h2>
+        <div class="d-flex justify-content-evenly flex-wrap">
+            <div class="card w-25 mx-2 my-2" *ngFor="let item of getProducts ;let ind = index ">
+                <div class="card-image-top text-center" >
+                   <img [src]="item.image" style="width:150px;height:150px; margin-top:10px">
+                </div>
+                 <div class="card-body">
+                    <p>{{item.price}}</p>
+                    <p>{{item.description}}</p>
+                 </div>
+                 <div class="card-footer">
+                     <button (click)="addToCart(ind)" class="btn btn-outline-success w-100 ">Add to cart</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>

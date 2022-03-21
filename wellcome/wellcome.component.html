@@ -1,0 +1,16 @@
+<h1>welcome to home</h1>
+<h1>dynamic routing bu using params</h1>
+<table>
+    <tr>
+     <th>clientId</th>
+    <th>name</th>
+    <th>area</th>
+    </tr>
+    <tr *ngFor="let data of clientList">
+        <td>{{data.clientId}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.area}}</td>
+        <td><a [routerLink]="['/user',data.clientId,'edit']">edit</a>|<a [routerLink]="['/user',data.clientId,'delete']">delete</a>
+        </td>
+    </tr>
+</table>
